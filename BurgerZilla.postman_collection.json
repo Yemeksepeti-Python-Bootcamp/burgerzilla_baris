@@ -1,0 +1,994 @@
+{
+	"info": {
+		"_postman_id": "dd52e525-b211-4b95-9ac7-217d30509759",
+		"name": "BurgerZilla",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Login - Register",
+					"item": [
+						{
+							"name": "Login User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"belgin@musteri.nett\",\r\n    \"password\":\"12345689\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/user_login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"user_login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"email\":\"test_user1@musteri.nett\",\r\n    \"username\":\"test_user1\",\r\n    \"name\":\"Test\",\r\n    \"surname\":\"User\",\r\n    \"password\":\"12345689\",\r\n    \"address\":\"Girit Mah. Paşa Sok. Hikmet Apartmanı, Kat: 3, Daire 1, Fatih/İstanbul\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/user_register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"user_register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order Operations",
+					"item": [
+						{
+							"name": "Get All Orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTM4NywianRpIjoiM2VkY2U4NTItYTdmZS00MDJhLTljNmQtZDc5NjhiMTRjMWE3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50IjpmYWxzZSwiYWRkcmVzcyI6Ikdpcml0IE1haC4gUGFcdTAxNWZhIFNvay4gSGlrbWV0IEFwYXJ0bWFuXHUwMTMxLCBLYXQ6IDMsIERhaXJlIDEsIEZhdGloL1x1MDEzMHN0YW5idWwiLCJuYW1lIjoiQmVsZ2luIiwiZW1haWwiOiJiZWxnaW5AbXVzdGVyaS5uZXR0Iiwiam9pbmVkX2RhdGUiOiIyMDIyLTAyLTEyVDIxOjA4OjUyLjExNjMzNyIsInN1cm5hbWUiOiJBeXRlbiIsImlkIjozLCJ1c2VybmFtZSI6ImJlbGdpbl9heXRlbiJ9LCJuYmYiOjE2NDQ3NTEzODcsImV4cCI6MTY0NTM1NjE4N30.I26W5xQpOcWLNg2tGnS3iBB9_zjybCJ72UWHKRQzCRs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/orders",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTM4NywianRpIjoiM2VkY2U4NTItYTdmZS00MDJhLTljNmQtZDc5NjhiMTRjMWE3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50IjpmYWxzZSwiYWRkcmVzcyI6Ikdpcml0IE1haC4gUGFcdTAxNWZhIFNvay4gSGlrbWV0IEFwYXJ0bWFuXHUwMTMxLCBLYXQ6IDMsIERhaXJlIDEsIEZhdGloL1x1MDEzMHN0YW5idWwiLCJuYW1lIjoiQmVsZ2luIiwiZW1haWwiOiJiZWxnaW5AbXVzdGVyaS5uZXR0Iiwiam9pbmVkX2RhdGUiOiIyMDIyLTAyLTEyVDIxOjA4OjUyLjExNjMzNyIsInN1cm5hbWUiOiJBeXRlbiIsImlkIjozLCJ1c2VybmFtZSI6ImJlbGdpbl9heXRlbiJ9LCJuYmYiOjE2NDQ3NTEzODcsImV4cCI6MTY0NTM1NjE4N30.I26W5xQpOcWLNg2tGnS3iBB9_zjybCJ72UWHKRQzCRs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/order/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"order",
+										"2"
+									]
+								},
+								"description": "To cancel any active order."
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Active Orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTE4MCwianRpIjoiZDk2Y2VhYjAtZGU3Zi00ZDdmLWE3YjMtZWZjNmVlNWJhN2I5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJuYW1lIjoiQmVsZ2luIiwiam9pbmVkX2RhdGUiOiIyMDIyLTAyLTEyVDIxOjA4OjUyLjExNjMzNyIsInVzZXJuYW1lIjoiYmVsZ2luX2F5dGVuIiwiaXNfcmVzdGF1cmFudCI6ZmFsc2UsImlkIjozLCJhZGRyZXNzIjoiR2lyaXQgTWFoLiBQYVx1MDE1ZmEgU29rLiBIaWttZXQgQXBhcnRtYW5cdTAxMzEsIEthdDogMywgRGFpcmUgMSwgRmF0aWgvXHUwMTMwc3RhbmJ1bCIsInN1cm5hbWUiOiJBeXRlbiIsImVtYWlsIjoiYmVsZ2luQG11c3RlcmkubmV0dCJ9LCJuYmYiOjE2NDQ3NTExODAsImV4cCI6MTY0NTM1NTk4MH0.A4qi64CeKYEJx0lCMfcO4JqVmNf8m0QZtcy80nmztxc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/orders/active_orders",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"orders",
+										"active_orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create an Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1NzkzNywianRpIjoiNDQ1YWEwZDEtZDY1Zi00NDJkLTk2MDQtYTlmZDc0YTdlZTg2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpZCI6MSwic3VybmFtZSI6Ilx1MDBkNnp5YWxcdTAxMzEiLCJ1c2VybmFtZSI6InVndXJfb3p5YWxpIiwiYWRkcmVzcyI6IlNhcGFuY2EgTWFoLiBEYXZ1dHBhXHUwMTVmYSBTb2suIE5helx1MDEzMW0gSGlrbWV0IEFwYXJ0bWFuXHUwMTMxLCBLYXQ6IDIwLCBEYWlyZSAxMCwgS2VcdTAxNWZhbi9FZGlybmUiLCJpc19yZXN0YXVyYW50IjpmYWxzZSwiZW1haWwiOiJ1Z3Vyb3p5QG11c3RlcmkubmV0dCIsIm5hbWUiOiJVXHUwMTFmdXIiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6MzM6MTAuODE4NDc2In0sIm5iZiI6MTY0NDc1NzkzNywiZXhwIjoxNjQ1MzYyNzM3fQ.nPluC2iewRrgIyaoMBoLDWRD9stW8Hj0o6_fUohvngA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order\":[\r\n        {\r\n            \"product_id\":2,\r\n            \"quantity\": 3\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/order/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"order",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDY5MjA3NCwianRpIjoiOTRkOGM3YWEtODc3NC00NDVmLTk1ODAtOTRhMjRhYzNkYWZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJuYW1lIjoiVGVzdCAzIiwiaWQiOjQsInN1cm5hbWUiOiJVc2VyIiwiaXNfcmVzdGF1cmFudCI6ZmFsc2UsInVzZXJuYW1lIjoieWVuaV90ZXN0X3VzZXI0MSIsImpvaW5lZF9kYXRlIjoiMjAyMi0wMi0xMlQxNjoxMjo0Mi4zOTE1MDciLCJlbWFpbCI6InllbmktdGVzdEBob3RtYWlsLmNvbSIsImFkZHJlc3MiOiJEXHUwMGZjbnlhblx1MDEzMW4gc29udSBiZWxraSBkZSBiYVx1MDE1Zlx1MDEzMSJ9LCJuYmYiOjE2NDQ2OTIwNzQsImV4cCI6MTY0NTI5Njg3NH0.5t-133oiOxoQS9ZwkBKwswJwLrXNczYPZzXvKwy81QY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/orders/35",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"orders",
+										"35"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Customer's Order Operations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Restaurant Operations",
+					"item": [
+						{
+							"name": "Get All Restaurants",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MDYzMiwianRpIjoiNDU3NmIzOGUtMzkzMS00OTlkLTgwZWUtNGM4ZTA5ZDBiNTVjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6ImJlbGdpbl9heXRlbiIsIm5hbWUiOiJCZWxnaW4iLCJhZGRyZXNzIjoiR2lyaXQgTWFoLiBQYVx1MDE1ZmEgU29rLiBIaWttZXQgQXBhcnRtYW5cdTAxMzEsIEthdDogMywgRGFpcmUgMSwgRmF0aWgvXHUwMTMwc3RhbmJ1bCIsImlkIjozLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjE6MDg6NTIuMTE2MzM3IiwiaXNfcmVzdGF1cmFudCI6ZmFsc2UsImVtYWlsIjoiYmVsZ2luQG11c3RlcmkubmV0dCIsInN1cm5hbWUiOiJBeXRlbiJ9LCJuYmYiOjE2NDQ3NTA2MzIsImV4cCI6MTY0NTM1NTQzMn0.QHadjTcqTuQvRkFVZUvWt6wu8Y4IBIbFWoGR1oiQoTc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/restaurants",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Restaurant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MDYzMiwianRpIjoiNDU3NmIzOGUtMzkzMS00OTlkLTgwZWUtNGM4ZTA5ZDBiNTVjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VybmFtZSI6ImJlbGdpbl9heXRlbiIsIm5hbWUiOiJCZWxnaW4iLCJhZGRyZXNzIjoiR2lyaXQgTWFoLiBQYVx1MDE1ZmEgU29rLiBIaWttZXQgQXBhcnRtYW5cdTAxMzEsIEthdDogMywgRGFpcmUgMSwgRmF0aWgvXHUwMTMwc3RhbmJ1bCIsImlkIjozLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjE6MDg6NTIuMTE2MzM3IiwiaXNfcmVzdGF1cmFudCI6ZmFsc2UsImVtYWlsIjoiYmVsZ2luQG11c3RlcmkubmV0dCIsInN1cm5hbWUiOiJBeXRlbiJ9LCJuYmYiOjE2NDQ3NTA2MzIsImV4cCI6MTY0NTM1NTQzMn0.QHadjTcqTuQvRkFVZUvWt6wu8Y4IBIbFWoGR1oiQoTc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/user/restaurant/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Customer operations"
+		},
+		{
+			"name": "Restaurant",
+			"item": [
+				{
+					"name": "Login - Register",
+					"item": [
+						{
+							"name": "Restaurant Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"barisayten@restoran.nett\",\r\n    \"restaurant_name\":\"Barış'ın Yeri\",\r\n    \"owner_name\":\"Barış\",\r\n    \"owner_surname\":\"Ayten\",\r\n    \"address\":\"Sapan Mah. Asa Sok. Nazim Apartmani, Kat: 2, Daire 1, Kesan/Edirne\",\r\n    \"password\":\"12345689\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/restaurant_register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"restaurant_register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Restaurant Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"barisayten@restoran.nett\",\r\n    \"password\":\"12345689\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/restaurant_login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"restaurant_login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "test_restaurant2@hotmail.com",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "test123456",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Restaurant Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"test_restaurant2@hotmail.com\",\r\n    \"password\":\"test123456\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:5000/auth/restaurant_login",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "5000",
+											"path": [
+												"auth",
+												"restaurant_login"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "BAD REQUEST",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "119"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/2.0.1 Python/3.10.1"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 10 Feb 2022 22:16:11 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": {\n        \"\": \"None is not of type 'object'\"\n    },\n    \"message\": \"Input payload validation failed\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Menu Operations",
+					"item": [
+						{
+							"name": "Create Menu",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDcxMzg0MiwianRpIjoiYjU2ZTk1MDItOGFlZC00MzEwLWE0NmEtNjAwYmQyNGU1ODZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJlbWFpbCI6ImJhcmlzYXl0ZW5AcmVzdG9yYW4ubmV0dCIsImlzX3Jlc3RhdXJhbnQiOnRydWUsImhhc2hfcGFzc3dvcmQiOiIkMmIkMTIkVWZxdEc1WWcuM1RITS5mbnZ2N0cuT0xBU1hNZGVBUUVGazEuVjNJZWdBZERxdnJ1UmI2OUMiLCJvd25lcl9zdXJuYW1lIjoiQXl0ZW4iLCJhZGRyZXNzIjoiU2FwYW4gTWFoLiBBc2EgU29rLiBOYXppbSBBcGFydG1hbmksIEthdDogMiwgRGFpcmUgMSwgS2VzYW4vRWRpcm5lIiwicmVzdGF1cmFudF9uYW1lIjoiQmFyXHUwMTMxXHUwMTVmJ1x1MDEzMW4gWWVyaSIsIm93bmVyX25hbWUiOiJCYXJcdTAxMzFcdTAxNWYiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjI6MTc6MzguNTY3NTA0IiwiaWQiOjN9LCJuYmYiOjE2NDQ3MTM4NDIsImV4cCI6MTY0NTMxODY0Mn0.dZPcw8UQGOBiXhOmW7c0hoWeGMtegLMP03v8RrRmHss",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"menu_name\":\"Barış'ın Spesiyali\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/menu",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"menu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Menu Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTcwOCwianRpIjoiNWMyMmMwMTItZTViZC00MzIwLWE5NWYtY2JkMWYyNGI2YTZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJhZGRyZXNzIjoiU2FwYW5jYSBNYWguIERhdnV0cGFzYSBTb2suIE5hemltIEhpa21ldCBBcGFydG1hbmksIEthdDogMjAsIERhaXJlIDEwLCBLZXNhbi9FZGlybmUiLCJlbWFpbCI6InR1bmNkQHJlc3RvcmFuLm5ldHQiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6Mzk6NTMuNDU0MTY3Iiwib3duZXJfbmFtZSI6IlR1blx1MDBlNyIsInJlc3RhdXJhbnRfbmFtZSI6IkR1YmxlbXVtYmxlIiwiaWQiOjIsImhhc2hfcGFzc3dvcmQiOiIkMmIkMTIkdDY0Wi56MkdFU0dTa1FSdEQubDhSLnd4UWVkbUxpVGdnbkVtRFpNRVI3MkJQejhiWWVrVXkiLCJvd25lcl9zdXJuYW1lIjoiRGltZGFsIn0sIm5iZiI6MTY0NDc1MTcwOCwiZXhwIjoxNjQ1MzU2NTA4fQ.OD7RGzRCWJ-ONbcHk6WI5m24ZzgxbHxIoodPfCFDSwg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/menu",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"menu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Menu",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDUzMTI2NSwianRpIjoiNDFlMjY2ZmItOTg1ZC00MWYzLTg1ZTYtN2VmMzk3MGYxYTJmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJlbWFpbCI6InRlc3RfcmVzdGF1cmFudDJAaG90bWFpbC5jb20iLCJoYXNoX3Bhc3N3b3JkIjoiJDJiJDEyJDl6STNtSXdXTG1scnRGUEVQcmZjbC53WWNsRk1hYmVKc0tybnNGdEdLOGF1RmpxQXhkOU5xIiwiaXNfcmVzdGF1cmFudCI6dHJ1ZSwiYWRkcmVzcyI6IkRlbmVtZSBEZW5lbWUgRGVuZW1lIERlbmVtZSBBZHJlc2kiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTBUMTg6MzA6MzAuNzUwOTgxIiwicmVzdGF1cmFudF9uYW1lIjoidGVzdCByZXN0YXVyYW50IDIiLCJvd25lcl9uYW1lIjoiVGVzdCAiLCJpZCI6Miwib3duZXJfc3VybmFtZSI6IlJlc3RhdXJhbnQifSwibmJmIjoxNjQ0NTMxMjY1LCJleHAiOjE2NDUxMzYwNjV9.L3h7ZMh0JMZgA6H507gmcB6fiAEkcvMAPrGzqAYKdCo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"menu_name\":\"UPDATED MENU NAME\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/menu/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"menu",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Menu",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDY5MjgwNywianRpIjoiZWUwODMwZmQtNDJiYy00YWI1LWIwYjctMzY5YTI5OGVjNzUxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJhZGRyZXNzIjoiRGVuZW1lIERlbmVtZSBEZW5lbWUgRGVuZW1lIEFkcmVzaSIsImpvaW5lZF9kYXRlIjoiMjAyMi0wMi0xMlQxMzo1Mzo0Ni45ODQ1MjgiLCJvd25lcl9zdXJuYW1lIjoiUmVzdGF1cmFudCAyIiwicmVzdGF1cmFudF9uYW1lIjoidGVzdCByZXN0YXVyYW50IDIiLCJoYXNoX3Bhc3N3b3JkIjoiJDJiJDEyJFBKQmFuMFhsWmdsNld4aXVsRzRZZHVHdVJyL1M2VzMyYldiS3ZUZS42aHRjSVIvNi9EbFNhIiwib3duZXJfbmFtZSI6IlRlc3QgMiIsImlkIjoyLCJlbWFpbCI6InRlc3RfcmVzdGF1cmFudDJAaG90bWFpbC5jb20ifSwibmJmIjoxNjQ0NjkyODA3LCJleHAiOjE2NDUyOTc2MDd9.jOgZxtuuuGI-AwYQi2BflVyW5Yi63rbR5Zp7DJLOyNw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/menu/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"menu",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product Operations",
+					"item": [
+						{
+							"name": "Delete Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDUyODY0MywianRpIjoiZGY3Y2VmOGMtODA3ZC00ZTAxLWI2OTYtMTA3MjQzMTFmMWE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJlbWFpbCI6InRlc3RfcmVzdGF1cmFudDJAaG90bWFpbC5jb20iLCJoYXNoX3Bhc3N3b3JkIjoiJDJiJDEyJDl6STNtSXdXTG1scnRGUEVQcmZjbC53WWNsRk1hYmVKc0tybnNGdEdLOGF1RmpxQXhkOU5xIiwiaWQiOjIsImlzX3Jlc3RhdXJhbnQiOnRydWUsIm93bmVyX3N1cm5hbWUiOiJSZXN0YXVyYW50Iiwiam9pbmVkX2RhdGUiOiIyMDIyLTAyLTEwVDE4OjMwOjMwLjc1MDk4MSIsInJlc3RhdXJhbnRfbmFtZSI6InRlc3QgcmVzdGF1cmFudCAyIiwiYWRkcmVzcyI6IkRlbmVtZSBEZW5lbWUgRGVuZW1lIERlbmVtZSBBZHJlc2kiLCJvd25lcl9uYW1lIjoiVGVzdCAifSwibmJmIjoxNjQ0NTI4NjQzLCJleHAiOjE2NDUxMzM0NDN9.QiIQOMa0dwSGyWwrU2z_zttvA4st19-k1Q_uGEdXc7E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/products/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"products",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDY5OTA2MSwianRpIjoiMmRhM2VmMjctYjYzMC00OWY5LTgwOWQtMDU5MzZkNTc4M2VjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6Mzg6NDkuNzQ1NDI5Iiwib3duZXJfbmFtZSI6Ilx1MDBkNm1lciIsInJlc3RhdXJhbnRfbmFtZSI6IkRvbWJpbGkgQnVyZ2VyIiwiaWQiOjEsImlzX3Jlc3RhdXJhbnQiOnRydWUsImVtYWlsIjoib21lcmtAcmVzdG9yYW4ubmV0dCIsImFkZHJlc3MiOiJHaXJpdCBNYWguIFBhc2EgU29rLiBIaWttZXQgQXBhcnRtYW5pLCBLYXQ6IDMsIERhaXJlIDEsIEZhdGloL0lzdGFuYnVsIiwiaGFzaF9wYXNzd29yZCI6IiQyYiQxMiRWZDF3L3puMUNvNW0vNkJxSk1qL05lLlBmLkQ4OFdEY3BYYVEueVVpUWlqb3F5TXY0Ym5nbSIsIm93bmVyX3N1cm5hbWUiOiJLYW5kb3IifSwibmJmIjoxNjQ0Njk5MDYxLCJleHAiOjE2NDUzMDM4NjF9.CuH3hGsCh9UU_m-B12RxTbC_zRLuw6vwPw9NclqSXAQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product to Menu",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTUwNCwianRpIjoiMzQxODJiMTItM2VlYy00NDlkLTkwZDktMDUxNmM4MDMyZDBjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJhZGRyZXNzIjoiU2FwYW4gTWFoLiBBc2EgU29rLiBOYXppbSBBcGFydG1hbmksIEthdDogMiwgRGFpcmUgMSwgS2VzYW4vRWRpcm5lIiwiZW1haWwiOiJiYXJpc2F5dGVuQHJlc3RvcmFuLm5ldHQiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjI6MTc6MzguNTY3NTA0Iiwib3duZXJfbmFtZSI6IkJhclx1MDEzMVx1MDE1ZiIsInJlc3RhdXJhbnRfbmFtZSI6IkJhclx1MDEzMVx1MDE1ZidcdTAxMzFuIFllcmkiLCJpZCI6MywiaGFzaF9wYXNzd29yZCI6IiQyYiQxMiRVZnF0RzVZZy4zVEhNLmZudnY3Ry5PTEFTWE1kZUFRRUZrMS5WM0llZ0FkRHF2cnVSYjY5QyIsIm93bmVyX3N1cm5hbWUiOiJBeXRlbiJ9LCJuYmYiOjE2NDQ3NTE1MDQsImV4cCI6MTY0NTM1NjMwNH0.gLm-lcDNk2KUUkMYB2ZFkeSrFAwgBV12La7TqZLdtro",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_name\":\"Serptim Topladım Kahvaltı\",\r\n    \"product_description\": \"Saçma sapan serpme kahvaltılara inat hazırlandı\",\r\n    \"product_price\": 25.75,\r\n    \"product_image\": \"www.img.com/kahvalti.jpg\",\r\n    \"menu_id\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/menu/add",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"menu",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDY5NDI1NiwianRpIjoiZjAyNDM2NGEtMDZkYi00ZmY3LTkwMjYtZDhhMGY0YzQxMzNiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMTM6NTM6NDYuOTg0NTI4IiwiaWQiOjIsIm93bmVyX25hbWUiOiJUZXN0IDIiLCJyZXN0YXVyYW50X25hbWUiOiJ0ZXN0IHJlc3RhdXJhbnQgMiIsIm93bmVyX3N1cm5hbWUiOiJSZXN0YXVyYW50IDIiLCJhZGRyZXNzIjoiRGVuZW1lIERlbmVtZSBEZW5lbWUgRGVuZW1lIEFkcmVzaSIsImhhc2hfcGFzc3dvcmQiOiIkMmIkMTIkUEpCYW4wWGxaZ2w2V3hpdWxHNFlkdUd1UnIvUzZXMzJiV2JLdlRlLjZodGNJUi82L0RsU2EiLCJlbWFpbCI6InRlc3RfcmVzdGF1cmFudDJAaG90bWFpbC5jb20ifSwibmJmIjoxNjQ0Njk0MjU2LCJleHAiOjE2NDUyOTkwNTZ9.O9vEusLKX8kOY1hbIsVsJHKHE2-98rZa1-1-LZ40ZCY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_name\":\"DEĞŞEN ÜRÜN\",\r\n    \"product_description\": \"BU ÜRÜN DEĞİŞTİ\",\r\n    \"product_price\": 15.75,\r\n    \"product_image\": \"www.imgflipflop.com\",\r\n    \"menu_id\": 9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/product/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"product",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order Operations",
+					"item": [
+						{
+							"name": "Get All Orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTcwOCwianRpIjoiNWMyMmMwMTItZTViZC00MzIwLWE5NWYtY2JkMWYyNGI2YTZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJhZGRyZXNzIjoiU2FwYW5jYSBNYWguIERhdnV0cGFzYSBTb2suIE5hemltIEhpa21ldCBBcGFydG1hbmksIEthdDogMjAsIERhaXJlIDEwLCBLZXNhbi9FZGlybmUiLCJlbWFpbCI6InR1bmNkQHJlc3RvcmFuLm5ldHQiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6Mzk6NTMuNDU0MTY3Iiwib3duZXJfbmFtZSI6IlR1blx1MDBlNyIsInJlc3RhdXJhbnRfbmFtZSI6IkR1YmxlbXVtYmxlIiwiaWQiOjIsImhhc2hfcGFzc3dvcmQiOiIkMmIkMTIkdDY0Wi56MkdFU0dTa1FSdEQubDhSLnd4UWVkbUxpVGdnbkVtRFpNRVI3MkJQejhiWWVrVXkiLCJvd25lcl9zdXJuYW1lIjoiRGltZGFsIn0sIm5iZiI6MTY0NDc1MTcwOCwiZXhwIjoxNjQ1MzU2NTA4fQ.OD7RGzRCWJ-ONbcHk6WI5m24ZzgxbHxIoodPfCFDSwg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/orders",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Order Status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDcwMDczOSwianRpIjoiOThiOTMyZmYtZjczMC00MTA0LWE3YTItNDhhOTkxMDY4YzE3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6Mzg6NDkuNzQ1NDI5Iiwib3duZXJfbmFtZSI6Ilx1MDBkNm1lciIsInJlc3RhdXJhbnRfbmFtZSI6IkRvbWJpbGkgQnVyZ2VyIiwiaWQiOjEsImlzX3Jlc3RhdXJhbnQiOnRydWUsImVtYWlsIjoib21lcmtAcmVzdG9yYW4ubmV0dCIsImFkZHJlc3MiOiJHaXJpdCBNYWguIFBhc2EgU29rLiBIaWttZXQgQXBhcnRtYW5pLCBLYXQ6IDMsIERhaXJlIDEsIEZhdGloL0lzdGFuYnVsIiwiaGFzaF9wYXNzd29yZCI6IiQyYiQxMiRWZDF3L3puMUNvNW0vNkJxSk1qL05lLlBmLkQ4OFdEY3BYYVEueVVpUWlqb3F5TXY0Ym5nbSIsIm93bmVyX3N1cm5hbWUiOiJLYW5kb3IifSwibmJmIjoxNjQ0NzAwNzM5LCJleHAiOjE2NDUzMDU1Mzl9.whaRS2I4ab9zGmBAu4eEohYclruAKBShxp04A3172V8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/order/update/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"order",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDc1MTcwOCwianRpIjoiNWMyMmMwMTItZTViZC00MzIwLWE5NWYtY2JkMWYyNGI2YTZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpc19yZXN0YXVyYW50Ijp0cnVlLCJhZGRyZXNzIjoiU2FwYW5jYSBNYWguIERhdnV0cGFzYSBTb2suIE5hemltIEhpa21ldCBBcGFydG1hbmksIEthdDogMjAsIERhaXJlIDEwLCBLZXNhbi9FZGlybmUiLCJlbWFpbCI6InR1bmNkQHJlc3RvcmFuLm5ldHQiLCJqb2luZWRfZGF0ZSI6IjIwMjItMDItMTJUMjA6Mzk6NTMuNDU0MTY3Iiwib3duZXJfbmFtZSI6IlR1blx1MDBlNyIsInJlc3RhdXJhbnRfbmFtZSI6IkR1YmxlbXVtYmxlIiwiaWQiOjIsImhhc2hfcGFzc3dvcmQiOiIkMmIkMTIkdDY0Wi56MkdFU0dTa1FSdEQubDhSLnd4UWVkbUxpVGdnbkVtRFpNRVI3MkJQejhiWWVrVXkiLCJvd25lcl9zdXJuYW1lIjoiRGltZGFsIn0sIm5iZiI6MTY0NDc1MTcwOCwiZXhwIjoxNjQ1MzU2NTA4fQ.OD7RGzRCWJ-ONbcHk6WI5m24ZzgxbHxIoodPfCFDSwg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/restaurant/order/cancel/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"restaurant",
+										"order",
+										"cancel",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
